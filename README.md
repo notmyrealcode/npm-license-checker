@@ -1,7 +1,3 @@
-<img src="https://img.shields.io/npm/l/license-checker-rseidelsohn" />
-
-[![NPM](https://nodei.co/npm/license-checker-rseidelsohn.png)](https://nodei.co/npm/license-checker-rseidelsohn/)
-
 # NPM License Checker
 
 ## Table of Contents
@@ -25,9 +21,7 @@
 <a name="introduction"/>
 
 ## Introduction
-_This is a fork of davglass' [license-checker v.25.0.1](https://github.com/davglass/license-checker/releases/tag/v25.0.1) - Since that code doesn't seem to be updated regularly, I created this fork for being able to adding new features and fixing bugs._
-
-_I changed the original `exclude` argument to `excludeLicenses` in order to prevent confusion and better align it with the `excludePackages` argument. Also, the argument `includeLicenses` has been added for listing only packages that include the licenses listed._
+_This is a fork of rseidelsohn' [license-checker-rseidelsohn](https://github.com/RSeidelsohn/license-checker-rseidelsohn#readme) - It mainly exists to exlude README which rarely has license files
 
 **Please notice:** Version 1.2.2 is the last version working fine on node v12. From Version 2 on, you will need at least Node v14 to run this NPM license checker. Thanks to @daniel-schulz for pointing this out!
 
@@ -36,12 +30,12 @@ Ever needed to see all the license info for a module and its dependencies?
 It's this easy:
 
 ```shell
-npm install -g license-checker-rseidelsohn
+npm install -g npm-license-checker-alt
 
 mkdir foo
 cd foo
 npm install yui-lint
-license-checker-rseidelsohn
+npm-license-checker-alt
 ```
 
 You should see something like this:
@@ -95,23 +89,9 @@ You could see something like this:
 
 ## Changes
 
-### Version 3.1.0
+### Version 1.0.1
 
-Add new option `--limitAttributes`. Example usage: `node bin/license-checker-rseidelsohn --limitAttributes publisher,email` will only list the `publisher` and `email` attributes for every dependency.
-
-### Version 3.0.1
-
-Fix the `--direct` option.
-
-### Version 3.0.0
-
-From now on, when you give the `--files` option, this tool outputs the path to the _copied_ license files rather than to
-the originals. When the `relativeLicensePath` option is given, this path will either be relative to the working
-directory or - if also the `out` option is given - relative to the `out` path.
-
-When using the `--out` option, you will not see output in the console, as the output goes into the file specified by
-`--out`. When using the `--files` option without `--out` option, you will now get console output, which was not the case
-before.
+First real version
 
 <a name="all_options_in_alphabetical_order"/>
 
@@ -164,14 +144,14 @@ support some license strings that are not SPDX identifiers.
 ## Examples
 
 ```
-license-checker-rseidelsohn --json > /path/to/licenses.json
-license-checker-rseidelsohn --csv --out /path/to/licenses.csv
-license-checker-rseidelsohn --unknown
-license-checker-rseidelsohn --customPath customFormatExample.json
-license-checker-rseidelsohn --excludeLicenses 'MIT, MIT OR X11, BSD, ISC'
-license-checker-rseidelsohn --includePackages 'react@16.3.0;react-dom@16.3.0;lodash@4.3.1'
-license-checker-rseidelsohn --excludePackages 'internal-1;internal-2'
-license-checker-rseidelsohn --onlyunknown
+npm-license-checker-alt --json > /path/to/licenses.json
+npm-license-checker-alt --csv --out /path/to/licenses.csv
+npm-license-checker-alt --unknown
+npm-license-checker-alt --customPath customFormatExample.json
+npm-license-checker-alt --excludeLicenses 'MIT, MIT OR X11, BSD, ISC'
+npm-license-checker-alt --includePackages 'react@16.3.0;react-dom@16.3.0;lodash@4.3.1'
+npm-license-checker-alt --excludePackages 'internal-1;internal-2'
+npm-license-checker-alt --onlyunknown
 ```
 
 <a name="custom_format"/>
@@ -206,7 +186,7 @@ See an example in [customFormatExample.json](customFormatExample.json).
 ## Requiring
 
 ```js
-var checker = require('license-checker-rseidelsohn');
+var checker = require('npm-license-checker-alt');
 
 checker.init(
     {
@@ -230,13 +210,13 @@ checker.init(
 
 license-checker uses [debug](https://www.npmjs.com/package/debug) for internal logging. There’s two internal markers:
 
--   `license-checker-rseidelsohn:error` for errors
--   `license-checker-rseidelsohn:log` for non-errors
+-   `npm-license-checker-alt:error` for errors
+-   `npm-license-checker-alt:log` for non-errors
 
 Set the `DEBUG` environment variable to one of these to see debug output:
 
 ```shell
-$ export DEBUG=license-checker-rseidelsohn*; license-checker-rseidelsohn
+$ export DEBUG=npm-license-checker-alt*; npm-license-checker-alt
 scanning ./yui-lint
 ├─ cli@0.4.3
 │  ├─ repository: http://github.com/chriso/cli
@@ -248,7 +228,7 @@ scanning ./yui-lint
 
 ## How Licenses are Found
 
-We walk through the `node_modules` directory with the [`read-installed-packages`](https://www.npmjs.org/package/read-installed-packages) module. Once we gathered a list of modules we walk through them and look at all of their `package.json`'s, We try to identify the license with the [`spdx`](https://www.npmjs.com/package/spdx) module to see if it has a valid SPDX license attached. If that fails, we then look into the module for the following files: `LICENSE`, `LICENCE`, `COPYING`, & `README`.
+We walk through the `node_modules` directory with the [`read-installed-packages`](https://www.npmjs.org/package/read-installed-packages) module. Once we gathered a list of modules we walk through them and look at all of their `package.json`'s, We try to identify the license with the [`spdx`](https://www.npmjs.com/package/spdx) module to see if it has a valid SPDX license attached. If that fails, we then look into the module for the following files: `LICENSE`, `LICENCE`, `COPYING`, 
 
 If one of the those files are found (in that order) we will attempt to parse the license data from it with a list of known license texts. This will be shown with the `*` next to the name of the license to show that we "guessed" at it.
 
