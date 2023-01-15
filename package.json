@@ -2,7 +2,7 @@
   "name": "npm-license-checker-alt",
   "description": "Extract NPM package licenses - Forked from Roman Seidelsohn's license-checker-rseidelsohn",
   "author": "The Mojo <themojo@gmail.com>",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "BSD-3-Clause",
   "contributors": [
     "Adam Weber <adamweber01@gmail.com>",
