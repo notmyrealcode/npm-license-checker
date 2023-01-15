@@ -1,8 +1,8 @@
 {
-  "name": "license-checker-rseidelsohn",
-  "description": "Extract NPM package licenses - Feature enhanced version of the original license-checker v25.0.1",
+  "name": "npm-license-checker-alt",
+  "description": "Extract NPM package licenses - Forked from Roman Seidelsohn's license-checker-rseidelsohn",
   "author": "Roman Seidelsohn <rseidelsohn@gmail.com>",
-  "version": "3.2.0",
+  "version": "1.0",
   "license": "BSD-3-Clause",
   "contributors": [
     "Adam Weber <adamweber01@gmail.com>",
@@ -113,11 +113,11 @@
   },
   "preferGlobal": true,
   "bugs": {
-    "url": "http://github.com/RSeidelsohn/license-checker-rseidelsohn/issues"
+    "url": "https://github.com/notmyrealcode/license-checker-rseidelsohn/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RSeidelsohn/license-checker-rseidelsohn.git"
+    "url": "https://github.com/notmyrealcode/npm-license-checker.git"
   },
   "nyc": {
     "check-coverage": true,
