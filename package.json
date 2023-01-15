@@ -1,8 +1,8 @@
 {
   "name": "npm-license-checker-alt",
   "description": "Extract NPM package licenses - Forked from Roman Seidelsohn's license-checker-rseidelsohn",
-  "author": "Roman Seidelsohn <rseidelsohn@gmail.com>",
-  "version": "1.0.1",
+  "author": "The Mojo <themojo@gmail.com>",
+  "version": "1.0.2",
   "license": "BSD-3-Clause",
   "contributors": [
     "Adam Weber <adamweber01@gmail.com>",
@@ -102,10 +102,10 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bin": {
-    "license-checker-rseidelsohn": "./bin/license-checker-rseidelsohn"
+    "npm-license-checker-alt": "./bin/npm-license-checker-alt"
   },
   "scripts": {
-    "changes": "github-changes -o RSeidelsohn -r license-checker-rseidelsohn",
+    "changes": "github-changes -o RSeidelsohn -r npm-license-checker-alt",
     "contrib": "node ./scripts/contrib.js",
     "pretest": "eslint --fix .",
     "test": "jenkins-mocha ./tests/*.js",
@@ -113,7 +113,7 @@
   },
   "preferGlobal": true,
   "bugs": {
-    "url": "https://github.com/notmyrealcode/license-checker-rseidelsohn/issues"
+    "url": "https://github.com/notmyrealcode/npm-license-checker-alt/issues"
   },
   "repository": {
     "type": "git",

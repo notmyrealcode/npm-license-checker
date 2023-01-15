@@ -57,7 +57,7 @@ const kownOptions = Object.keys(args.knownOpts);
 const unknownArgs = Object.keys(parsedArgs).filter((arg) => !kownOptions.includes(arg));
 
 if (unknownArgs.length) {
-    console.error(`license-checker-rseidelsohn@${require('../package.json').version}`, '\n');
+    console.error(`npm-license-checker-alt@${require('../package.json').version}`, '\n');
     console.error(
         `Error: Unknown option${unknownArgs.length > 1 ? 's' : ''}: ${unknownArgs
             .map((unknownArg) => `'${unknownArg}'`)
@@ -69,7 +69,7 @@ if (unknownArgs.length) {
 }
 
 if (!unknownArgs.length && parsedArgs.help) {
-    console.error(`license-checker-rseidelsohn@${require('../package.json').version}`);
+    console.error(`npm-license-checker-alt@${require('../package.json').version}`);
     console.error(usageMessage, '\n');
     process.exit(0);
 }
